@@ -61,7 +61,7 @@ angular.module('OiVendeApp', ['ionic', 'pouchdb'])
     })
 
   .state('app.single', {
-    url: '/playlists/:playlistId',
+    url: '/playlists/:estiloId',
     views: {
       'menuContent': {
         templateUrl: 'templates/playlist.html',

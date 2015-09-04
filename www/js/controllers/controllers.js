@@ -71,19 +71,21 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout, pouchDB) {
         // $scope.playlists.push(change);
     }
 
-  db.allDocs({include_docs: true})
-    .then(function(result){
-        console.log("consulta ao DB concluída");
-       $scope.playlists = result.rows;
-    //    console.log(JSON.stringify(result.rows[0].doc));
-  });
+    $scope.$on('$ionicView.enter', function(e) {
+        db.allDocs({include_docs: true})
+          .then(function(result){
+              console.log("consulta ao DB concluída");
+             $scope.playlists = result.rows;
+          //    console.log(JSON.stringify(result.rows[0].doc));
+        });
+    });
 
   db.changes(options).$promise
       .then(null, null, onChange);
   // db.destroy();
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams, pouchDB) {
+.controller('PlaylistCtrl', function($scope, $state, $stateParams, pouchDB) {
     $scope.estilo = {};
     var db = pouchDB('playlist');
     var options = {
@@ -93,8 +95,20 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout, pouchDB) {
       live: true
     };
 
-    db.get($stateParams._id).then(function(doc){
+    console.log(JSON.stringify($stateParams));
+    db.get($stateParams.estiloId).then(function(doc){
         console.log(JSON.stringify(doc));
         $scope.estilo = doc;
     });
+
+    $scope.save = function(doc) {
+        db.get(doc._id).then(function(document){
+            db.put({_id: doc._id, estiloMusical: doc.estiloMusical, _rev: document._rev}).then(function(success) {
+                console.log("estilo atualizado com sucesso.");
+                $state.go('app.playlists');
+            }).catch(function(err){
+                console.log("Erro atualizando o arquivo: " + JSON.stringify(err));
+            });
+        });
+    }
 });

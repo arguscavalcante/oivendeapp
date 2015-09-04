@@ -1,5 +1,17 @@
-<ion-view view-title="Playlist">
-  <ion-content>
-    <h1>Playlist</h1>
-  </ion-content>
+<ion-view title="Esitlo Musical">
+    <ion-content padding="true" class="has-header">
+        <form>
+            <ion-list>
+                <label class="item item-input" name="esitloMusical">
+                    <span class="input-label">Estilo Musical</span>
+                    <input type="text" placeholder="estilo musical" ng-model="estilo.estiloMusical">
+                </label>
+            </ion-list>
+            <div class="spacer" style="height: 40px;"></div>
+            <button class="button button-stable button-block  icon-right ion-music-note" ng-click="save(estilo)">Atualizar Estilo</button>
+
+            <input type="hidden" name="_id" ng-model="estilo._id" />
+            <input type="hidden" name="_rev" ng-model="estilo._rev" />
+        </form>
+    </ion-content>
 </ion-view>
