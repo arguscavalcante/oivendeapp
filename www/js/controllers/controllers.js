@@ -1,6 +1,6 @@
-angular.module('starter.controllers', [])
+var app = angular.module('OiVendeApp');
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+app.controller('AppCtrl', function($scope, $ionicModal, $timeout, pouchDB) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -41,16 +41,60 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+.controller('PlaylistsCtrl', function($scope, pouchDB) {
+    console.log("Criando o banco");
+    $scope.playlists = [];
+    var db = pouchDB('playlist');
+    var options = {
+      /*eslint-disable camelcase */
+      include_docs: true,
+      /*eslint-enable camelcase */
+      live: true
+    };
+
+    // db.post({ estiloMusical: 'Reggae'}, options).then(function(response) {
+    //     console.log("sucesso do put");
+    //     // console.log(JSON.stringify(response));
+    //     // $scope.playlists.push(response);
+    // }).catch(function (error) {
+    //     console.log("erro");
+    //     console.error(JSON.stringify(error));
+    // });
+    //
+    // db.post({ estiloMusical: 'Chill'});
+    // db.post({ estiloMusical: 'Socorro'});
+    // db.post({ estiloMusical: 'Indie'});
+    // db.post({ estiloMusical: 'Rap'});
+    // db.post({ estiloMusical: 'Tomar Banho'});
+
+    function onChange(change) {
+        // $scope.playlists.push(change);
+    }
+
+  db.allDocs({include_docs: true})
+    .then(function(result){
+        console.log("consulta ao DB concluída");
+       $scope.playlists = result.rows;
+    //    console.log(JSON.stringify(result.rows[0].doc));
+  });
+
+  db.changes(options).$promise
+      .then(null, null, onChange);
+  // db.destroy();
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('PlaylistCtrl', function($scope, $stateParams, pouchDB) {
+    $scope.estilo = {};
+    var db = pouchDB('playlist');
+    var options = {
+      /*eslint-disable camelcase */
+      include_docs: true,
+      /*eslint-enable camelcase */
+      live: true
+    };
+
+    db.get($stateParams._id).then(function(doc){
+        console.log(JSON.stringify(doc));
+        $scope.estilo = doc;
+    });
 });

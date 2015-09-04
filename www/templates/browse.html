@@ -1,5 +1,14 @@
-<ion-view view-title="Browse">
-  <ion-content>
-    <h1>Browse</h1>
-  </ion-content>
+<ion-view title="Esitlo Musical">
+    <ion-content padding="true" class="has-header">
+        <form>
+            <ion-list>
+                <label class="item item-input" name="esitloMusical">
+                    <span class="input-label">EstiloMusical</span>
+                    <input type="text" placeholder="estilo musical" ng-model="estilo.nome">
+                </label>
+            </ion-list>
+            <div class="spacer" style="height: 40px;"></div>
+            <button class="button button-stable button-block  icon-right ion-music-note" ng-click="save(estilo)">Incluir</button>
+        </form>
+    </ion-content>
 </ion-view>

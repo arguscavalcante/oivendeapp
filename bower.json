@@ -5,6 +5,7 @@
     "ionic": "driftyco/ionic-bower#1.1.0"
   },
   "dependencies": {
-    "pouchdb": "~4.0.1"
+    "pouchdb": "~4.0.1",
+    "angular-pouchdb": "~3.0.0"
   }
 }
