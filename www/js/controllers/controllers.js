@@ -41,9 +41,9 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout, pouchDB) {
   };
 })
 
-.controller('PlaylistsCtrl', function($scope, pouchDB) {
+.controller('TelefoneCtrl', function($scope, pouchDB) {
     console.log("Criando o banco");
-    $scope.playlists = [];
+    $scope.tel = {};
     var db = pouchDB('playlist');
     var options = {
       /*eslint-disable camelcase */
@@ -52,21 +52,10 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout, pouchDB) {
       live: true
     };
 
-    // db.post({ estiloMusical: 'Reggae'}, options).then(function(response) {
-    //     console.log("sucesso do put");
-    //     // console.log(JSON.stringify(response));
-    //     // $scope.playlists.push(response);
-    // }).catch(function (error) {
-    //     console.log("erro");
-    //     console.error(JSON.stringify(error));
-    // });
-    //
-    // db.post({ estiloMusical: 'Chill'});
-    // db.post({ estiloMusical: 'Socorro'});
-    // db.post({ estiloMusical: 'Indie'});
-    // db.post({ estiloMusical: 'Rap'});
-    // db.post({ estiloMusical: 'Tomar Banho'});
+    $scope.consultarTelefone = function(tel) {
 
+    }
+    
     function onChange(change) {
         // $scope.playlists.push(change);
     }
