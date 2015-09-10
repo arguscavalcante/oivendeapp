@@ -19,7 +19,7 @@ app.controller('TelefoneCtrl', function($scope, $state, Cliente, Porta) {
                    console.log("Cliente encontrado: ");
                    console.log(JSON.stringify(result));
                    $scope.cliente = result;
-                   Porta.find(){filter:
+                   Porta.find({filter:
                                    {where: {
                                        telefone: telefone
                                 }}})
