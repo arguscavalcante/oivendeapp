@@ -22,7 +22,9 @@ angular.module('OiVendeApp', ['ionic', 'pouchdb','lbServices'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, LoopBackResourceProvider) {
+
+    LoopBackResourceProvider.setUrlBase('http://oivendeservice.mybluemix.net/api');
   $stateProvider
 
     .state('app', {

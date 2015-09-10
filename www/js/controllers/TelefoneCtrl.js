@@ -8,7 +8,10 @@ app.controller('TelefoneCtrl', function($scope, $state, Cliente) {
         var telefone = tel.ddd + tel.telefone;
         var cpf = tel.cpf;
         console.log("Dados: " + telefone + " - " + cpf);
-        Cliente.find({filter:{telefone: telefone}})
+        Cliente.find({filter:
+                        {where: {
+                            telefone: telefone
+                     }}})
                .$promise
                .then(function(result){
                    console.log("Resultado encontrado: ");
