@@ -41,39 +41,6 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout, pouchDB) {
   };
 })
 
-.controller('TelefoneCtrl', function($scope, pouchDB) {
-    console.log("Criando o banco");
-    $scope.tel = {};
-    var db = pouchDB('playlist');
-    var options = {
-      /*eslint-disable camelcase */
-      include_docs: true,
-      /*eslint-enable camelcase */
-      live: true
-    };
-
-    $scope.consultarTelefone = function(tel) {
-
-    }
-    
-    function onChange(change) {
-        // $scope.playlists.push(change);
-    }
-
-    $scope.$on('$ionicView.enter', function(e) {
-        db.allDocs({include_docs: true})
-          .then(function(result){
-              console.log("consulta ao DB concluída");
-             $scope.playlists = result.rows;
-          //    console.log(JSON.stringify(result.rows[0].doc));
-        });
-    });
-
-  db.changes(options).$promise
-      .then(null, null, onChange);
-  // db.destroy();
-})
-
 .controller('PlaylistCtrl', function($scope, $state, $stateParams, pouchDB) {
     $scope.estilo = {};
     var db = pouchDB('playlist');
