@@ -24,7 +24,7 @@ app.controller('TelefoneCtrl', function($scope, $state, Cliente, Porta) {
                                        telefone: telefone
                                 }}})
                         .$promise
-                        .then(function(result)) {
+                        .then(function(result) {
                             console.log("Portas encontradas: ");
                             console.log(JSON.stringify(result));
                             $scope.portas = result;
