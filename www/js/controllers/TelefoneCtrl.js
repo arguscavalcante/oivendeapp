@@ -3,7 +3,7 @@ var app = angular.module('OiVendeApp');
 app.controller('TelefoneCtrl', function($scope, $state, Cliente, Porta) {
     console.log("Consulta a telefone");
     $scope.tel = {};
-    $socpe.cliente = {};
+    $scope.cliente = {};
     $scope.portas = [];
 
     $scope.consultarTelefone = function(tel) {
