@@ -1,11 +1,10 @@
 var app = angular.module('OiVendeApp');
 
-app.controller('TelefoneCtrl', function($scope, $state, Cliente, Porta) {
-    console.log("Consulta a telefone");
+app.controller('VelocidadeCtrl', function($scope, $state, $stateParams) {
+    console.log("Consulta a Velocidade: " + JSON.stringify($stateParams.cliente) + " --- " + JSON.stringify($stateParams.portas));
     $scope.tel = {};
     $scope.cliente = {};
     $scope.portas = [];
-    $scope.exibirDadosCliente = false;
 
     $scope.consultarTelefone = function(tel) {
         var telefone = tel.ddd + tel.telefone;
@@ -19,7 +18,7 @@ app.controller('TelefoneCtrl', function($scope, $state, Cliente, Porta) {
                .then(function(result){
                    console.log("Cliente encontrado: ");
                    console.log(JSON.stringify(result));
-                   $scope.cliente = result[0];
+                   $scope.cliente = result;
                    Porta.find({filter:
                                    {where: {
                                        telefone: telefone
@@ -29,8 +28,6 @@ app.controller('TelefoneCtrl', function($scope, $state, Cliente, Porta) {
                             console.log("Portas encontradas: ");
                             console.log(JSON.stringify(result));
                             $scope.portas = result;
-                            // $state.go("app.velocidade", {cliente: $scope.cliente, portas: $scope.portas});
-                            $scope.exibirDadosCliente = true;
                         });
         });
     }

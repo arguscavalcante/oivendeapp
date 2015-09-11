@@ -1,0 +1,25 @@
+<ion-view view-title="Telefone Fixo">
+  <ion-content>
+    <!-- <ion-list>
+      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.doc._id}}">
+        {{playlist.doc.estiloMusical}}
+      </ion-item>
+    </ion-list> -->
+    <ion-list>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">ddd</span>
+    <input type="text" placeholder="ddd" ng-model="tel.ddd">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">telefone</span>
+    <input type="text" placeholder="telefone" ng-model="tel.telefone">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">cpf</span>
+    <input type="text" placeholder="cpf" ng-model="tel.cpf">
+  </label>
+
+  <button class="button button-stable button-block  icon-right ion-music-note" ng-click="consultarTelefone(tel)">Consultar</button>
+</<ion-list>
+  </ion-content>
+</ion-view>

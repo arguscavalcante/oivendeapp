@@ -6,20 +6,26 @@
       </ion-item>
     </ion-list> -->
     <ion-list>
-  <label class="item item-input item-floating-label">
-    <span class="input-label">ddd</span>
-    <input type="text" placeholder="ddd" ng-model="tel.ddd">
-  </label>
-  <label class="item item-input item-floating-label">
-    <span class="input-label">telefone</span>
-    <input type="text" placeholder="telefone" ng-model="tel.telefone">
-  </label>
-  <label class="item item-input item-floating-label">
-    <span class="input-label">cpf</span>
-    <input type="text" placeholder="cpf" ng-model="tel.cpf">
-  </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">ddd</span>
+        <input type="text" placeholder="ddd" ng-model="tel.ddd">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">telefone</span>
+        <input type="text" placeholder="telefone" ng-model="tel.telefone">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">cpf</span>
+        <input type="text" placeholder="cpf" ng-model="tel.cpf">
+      </label>
 
-  <button class="button button-stable button-block  icon-right ion-music-note" ng-click="consultarTelefone(tel)">Consultar</button>
-</<ion-list>
+      <button class="button button-stable button-block  icon-right ion-music-note" ng-click="consultarTelefone(tel)">Consultar</button>
+    </<ion-list>
+
+    <ion-list ng-show="exibirDadosCliente">
+        <h2>Dados do Cliente</h2>
+        Nome: {{cliente.nome}}
+        email: {{cliente.email}}
+    </ion-list>
   </ion-content>
 </ion-view>

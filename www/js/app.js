@@ -62,6 +62,16 @@ angular.module('OiVendeApp', ['ionic', 'pouchdb','lbServices'])
       }
     })
 
+    .state('app.velocidade', {
+      url: '/velocidade/:cliente/:portas',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/velocidade.html',
+          controller: 'VelocidadeCtrl'
+        }
+      }
+    })
+
   .state('app.single', {
     url: '/playlists/:estiloId',
     views: {
