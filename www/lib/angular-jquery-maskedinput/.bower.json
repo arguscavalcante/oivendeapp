@@ -1,0 +1,14 @@
+{
+  "name": "angular-jquery-maskedinput",
+  "homepage": "https://github.com/danicomas/angular-jquery-maskedinput",
+  "_release": "7858736d68",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "7858736d682a261432eab6bf8c4b3c036c6d26c2"
+  },
+  "_source": "git://github.com/danicomas/angular-jquery-maskedinput.git",
+  "_target": "*",
+  "_originalSource": "angular-jquery-maskedinput",
+  "_direct": true
+}
