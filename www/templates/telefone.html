@@ -5,24 +5,33 @@
         {{playlist.doc.estiloMusical}}
       </ion-item>
     </ion-list> -->
-    <ion-list>
+    <ion-list> <!-- ng-show="exibirConsultaTelefone" -->
       <label class="item item-input item-floating-label">
         <span class="input-label">ddd</span>
-        <input type="text" placeholder="ddd" ng-model="tel.ddd">
+        <input type="text" placeholder="ddd" ng-model="tel.ddd" data-mask="(99)">
       </label>
       <label class="item item-input item-floating-label">
         <span class="input-label">telefone</span>
-        <input type="text" placeholder="telefone" ng-model="tel.telefone">
+        <input type="text" placeholder="telefone" ng-model="tel.telefone" data-mask="9999-9999">
       </label>
       <label class="item item-input item-floating-label">
         <span class="input-label">cpf</span>
-        <input type="text" placeholder="cpf" ng-model="tel.cpf">
+        <input type="text" placeholder="cpf" ng-model="tel.cpf" data-mask="999.999.999-99">
       </label>
 
       <button class="button button-stable button-block  icon-right ion-music-note" ng-click="consultarTelefone(tel)">Consultar</button>
+
+      <span>
+            <ion-card>
+              <div class="item item-text-wrap">
+                {{msgConsultaTelefone}}
+              </div>
+          </ion-card>
+
+      </span>
     </<ion-list>
 
-    <ion-list ng-show="exibirDadosCliente">
+    <ion-list> <!--  ng-show="exibirDadosCliente" -->
         <h2>Dados do Cliente</h2>
         Nome: {{cliente.nome}}
         email: {{cliente.email}}
