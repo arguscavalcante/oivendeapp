@@ -1,14 +1,24 @@
-<ion-view title="Esitlo Musical">
+<ion-view title="Esitlo Musical" ng-controller="EstiloCtrl as estCtrl">
     <ion-content padding="true" class="has-header">
         <form>
             <ion-list>
                 <label class="item item-input" name="esitloMusical">
                     <span class="input-label">Estilo Musical</span>
-                    <input type="text" placeholder="estilo musical" ng-model="estilo.nome">
+                    <input ng-bind="estCtrl.dataEstilo" ng-model="estCtrl.dataEstilo.nome" type="text" placeholder="estilo musical" >
                 </label>
             </ion-list>
             <div class="spacer" style="height: 40px;"></div>
-            <button class="button button-stable button-block  icon-right ion-music-note" ng-click="save(estilo)">Incluir</button>
+            <button class="button button-stable button-block  icon-right ion-music-note" ng-click="estCtrl.save(estCtrl.dataEstilo)">Incluir</button>
         </form>
+
+        <ion-list ng-repeat="item in estCtrl.dataEstilo" >
+            <ion-item>
+                <button class="ion-minus-circled" ng-click="estCtrl.dataEstilo.splice($index, 1); estCtrl.delete(item.id)">
+
+                </button>
+                {{item.doc.estiloMusical}}
+            </ion-item>
+        </ion-list>
+
     </ion-content>
 </ion-view>

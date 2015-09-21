@@ -1,0 +1,46 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">Adicionar Produto</h1>
+    </ion-header-bar>
+    <ion-content>
+        <form name="fmTickets">
+            <div class="list">
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Número do chamado</span>
+                <input type="text" ng-model="tk_vm.nrChamado" name="nrChamado">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Aberto em</span>
+                <input type="text" ng-model="tk_vm.abertoEm" name="abertoEm">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Data Anatel</span>
+                <input type="text" ng-model="tk_vm.dataAnatel" name="dataAnatel">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Data Prorrogada</span>
+                <input type="text" ng-model="tk_vm.dataProrrogada" name="dataProrrogada">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Status</span>
+                <input type="text" ng-model="tk_vm.status" name="status">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Situação</span>
+                <input type="text" ng-model="tk_vm.situacao" name="situacao">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Prioridade</span>
+                <input type="text" ng-model="tk_vm.prioridade" name="prioridade">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Categoria</span>
+                <input type="text" ng-model="tk_vm.categoria" name="categoria">
+              </label>
+            </div>
+            <button class="button" ng-click="tk_vm.save(fmTickets)">
+                Salvar
+            </button>
+        </form>
+    </ion-content>
+</ion-modal-view>

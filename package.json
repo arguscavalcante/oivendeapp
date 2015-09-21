@@ -1,27 +1,25 @@
 {
-  "name": "oivendeapp",
-  "version": "1.0.0",
-  "description": "OiVendeApp: An Ionic project",
+  "name": "OiVendeApp",
+  "version": "0.0.1",
+  "description": "OiVendeApp",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
-    "gulp": "^3.5.6",
-    "gulp-sass": "^1.3.3",
-    "gulp-concat": "^2.2.0",
-    "gulp-minify-css": "^0.3.0",
-    "gulp-rename": "^1.2.0"
+    "express": "~4.9.x"
   },
-  "devDependencies": {
-    "bower": "^1.3.3",
-    "gulp-util": "^2.2.14",
-    "shelljs": "^0.3.0"
+  "engines": {
+    "node": "0.10.x"
   },
-  "cordovaPlugins": [
-    "com.ionic.keyboard",
-    "cordova-plugin-splashscreen",
-    "cordova-plugin-console",
-    "cordova-plugin-whitelist",
-    "cordova-plugin-device"
+  "repository": {
+    "type": "git",
+    "url": "https://git.heroku.com/deposito-web.git"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
   ],
-  "cordovaPlatforms": [
-    "ios"
-  ]
+  "license": "MIT"
 }

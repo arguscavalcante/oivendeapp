@@ -1,0 +1,7 @@
+{
+  "name": "OiVendeApp",
+  "description": "OiVendeApp",
+  "repository": "https://git.heroku.com/deposito-web.git",
+  "logo": "https://deposito-web.herokuapp.com/node.svg",
+  "keywords": ["node", "express", "static"]
+}

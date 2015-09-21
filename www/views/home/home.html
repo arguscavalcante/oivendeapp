@@ -1,0 +1,282 @@
+<ion-view ng-controller="HomeCtrl as home">
+    <ion-content padding="true" class="main-content" scroll="false">
+        <div class="row cmp-search">
+            <i class="icon ion-navicon lt-gold ft-2 icon-search-section"></i>
+            <div class="col col-25">
+                <label class="item item-input rad-25 border-3px ">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" placeholder="CPF">
+                </label>
+            </div>
+            <div class="col col-50">
+                <label class="item item-input rad-25 border-3px">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" placeholder="Nome">
+                </label>
+            </div>
+        </div>
+
+        <div class="row cmp-client">
+            <div class="col col-33 list border-right">
+                <p class="item item-icon-right no-border">
+                    <span class="ft-1">Leonardo Luiz Sarmento</span>
+                    <a class="icon ft-1 dk-blue ion-ios-information-outline" href="#"></a>
+                </p>
+                <p class="item item-icon-right no-border">
+                    <span class="ft-0-8 lt-green">Ativo - </span>
+                    <span class="ft-0-8 lt-gold">Segmento Ouro</span>
+                    <a class="icon" href="#">
+                        <img src="img/edit_icon.png"/>
+                    </a>
+                </p>
+            </div>
+            <div class="col col-15 border-right">
+                <span class="grey">No. Oi:</span>
+                <p class="ft-1 mg-tp-10">21988718111</p>
+            </div>
+            <div class="col col-15 border-right">
+                <span class="grey">Oi Chip:</span>
+                <p class="ft-1 mg-tp-10">895501831</p>
+            </div>
+            <div class="col col-33">
+                <span class="grey">Planos</span>
+                <p class="ft-1 lt-blue mg-tp-10">
+                    Plano Oi Colaborador, Oi Dados Colaborador
+                </p>
+            </div>
+        </div>
+        <div class="row cmp-client-footer border-top">
+            <div class="col col-10">
+                <p class="item item-checkbox no-border">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>
+                    <span class="ft-0-6 gold">Inadimplente</span>
+                </p>
+            </div>
+            <div class="col col-10">
+                <p class="item item-checkbox no-border">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>
+                    <span class="ft-0-6 dk-purple">VIP</span>
+                </p>
+            </div>
+            <div class="col col-10">
+                <p class="item item-checkbox no-border">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>
+                    <span class="ft-0-6 dk-purple">Migrado</span>
+                </p>
+            </div>
+            <div class="col col-10">
+                <p class="item item-checkbox no-border">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>
+                    <span class="ft-0-6 dk-blue">Empresa Pioneiro</span>
+                </p>
+            </div>
+            <div class="col col-10">
+                <p class="item item-checkbox no-border">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>
+                    <span class="ft-0-6 dk-blue">Anatel</span>
+                </p>
+            </div>
+            <div class="col col-10">
+                <p class="item item-checkbox no-border">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>
+                    <span class="ft-0-6 gold">Vítima de fraude</span>
+                </p>
+            </div>
+            <div class="col col-10">
+                <p class="item item-checkbox no-border">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>
+                    <span class="ft-0-6 gold">Resgate Indevido</span>
+                </p>
+            </div>
+            <div class="col col-10">
+                <p class="item item-checkbox no-border">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>
+                    <span class="ft-0-6 gold">Bloq. Cadastro</span>
+                </p>
+            </div>
+            <div class="col col-10">
+                <p class="item item-checkbox no-border">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>
+                    <span class="ft-0-6 gold">Fraude</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="row row-2-col">
+            <div class="col col-50 cmp-products bg-white" ng-controller="ProductsCtrl as pd_vm">
+                <div class="row">
+                    <div class="col col-20">
+                        <p class="ft-0-8 gold txt-lt">Status</p>
+                    </div>
+                    <div class="col col-50">
+                        <p class="ft-0-8 gold pad-lf-rt-10 txt-lt">Modelo</p>
+                    </div>
+                    <div class="col col-33">
+                        <p class="ft-0-8 gold pad-lf-rt-10">IMEI</p>
+                    </div>
+                </div>
+                <div class="holder-data">
+                    <ion-scroll zooming="true" direction="y">
+                        <div class="row" ng-repeat="product in pd_vm.products">
+                            <div class="col col-20">
+                                <p class="ft-1 green pad-lf-rt-10 mg-bt-5">{{product.doc.status}}</p>
+                            </div>
+                            <div class="col col-40">
+                                <p class="ft-1 pad-lf-rt-10 mg-bt-5">{{product.doc.modelo}}</p>
+                            </div>
+                            <div class="col col-33">
+                                <p class="ft-1 pad-lf-rt-10 mg-bt-5">{{product.doc.imei}}</p>
+                            </div>
+                            <div class="col col-10">
+                                <a class="ft-1 pad-lf-rt-10 mg-bt-5" ng-click="pd_vm.delete(product.doc._id)">X</a>
+                            </div>
+                        </div>
+                    </ion-scroll>
+                </div>
+                <a class="icon btn-rt-top" ng-click="pd_vm.modal.show()">
+                    <img src="img/edit_icon.png"/>
+                </a>
+            </div>
+            <div class="col col-50 cmp-devices" ng-controller="DevicesCtrl as vm">
+                <div class="tb-holder bg-white">
+                    <div class="row">
+                        <div class="col col-20">
+                            <p class="ft-0-8 gold txt-lt">Status</p>
+                        </div>
+                        <div class="col col-50">
+                            <p class="ft-0-8 gold pad-lf-rt-10 txt-lt">Modelo</p>
+                        </div>
+                        <div class="col col-33">
+                            <p class="ft-0-8 gold pad-lf-rt-10">IMEI</p>
+                        </div>
+                    </div>
+                    <div class="holder-data">
+                        <ion-scroll zooming="true" direction="y">
+                            <div class="row" ng-repeat="device in vm.devices">
+                                <div class="col col-20">
+                                    <p class="ft-1 green pad-lf-rt-10 mg-bt-5">{{device.doc.status}}</p>
+                                </div>
+                                <div class="col col-50">
+                                    <p class="ft-1 pad-lf-rt-10 mg-bt-5">{{device.doc.modelo}}</p>
+                                </div>
+                                <div class="col col-33">
+                                    <p class="ft-1 pad-lf-rt-10 mg-bt-5">{{device.doc.imei}}</p>
+                                </div>
+                            </div>
+                        </ion-scroll>
+                    </div>
+                    <a class="icon btn-rt-top" ng-click="vm.modal.show()">
+                        <img src="img/edit_icon.png"/>
+                    </a>
+                </div>
+                <!-- TODO Create charts widget -->
+                <div class="cmp-chart bg-white">
+                    <p class="ft-1-5">Utilização dos serviços</p>
+                    <img src="img/graphic.png"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row bg-white">
+            <div class="col cmp-tickets" ng-controller="TicketsCtrl as tk_vm">
+                <div class="row">
+                    <div class="col col-10">
+                        <p class="ft-0-8 gold txt-ct">No. do Chamado</p>
+                    </div>
+                    <div class="col col-10">
+                        <p class="ft-0-8 gold pad-lf-rt-10">Aberto em</p>
+                    </div>
+                    <div class="col col-10">
+                        <p class="ft-0-8 gold pad-lf-rt-10">Data Anatel</p>
+                    </div>
+                    <div class="col col-10">
+                        <p class="ft-0-8 gold pad-lf-rt-10">Data Prorrogada</p>
+                    </div>
+                    <div class="col col-10">
+                        <p class="ft-0-8 gold pad-lf-rt-10">Status</p>
+                    </div>
+                    <div class="col col-20">
+                        <p class="ft-0-8 gold pad-lf-rt-10">Situação</p>
+                    </div>
+                    <div class="col col-10">
+                        <p class="ft-0-8 gold pad-lf-rt-10 txt-lt">Prioridade</p>
+                    </div>
+                    <div class="col col-10">
+                        <p class="ft-0-8 gold pad-lf-rt-10">Categoria</p>
+                    </div>
+                </div>
+                <div class="holder-data">
+                    <ion-scroll zooming="true" direction="y">
+                        <div class="row" ng-repeat="ticket in tk_vm.tickets">
+                            <div class="col col-10">
+                                <p class="ft-1 green pad-lf-rt-10 mg-bt-5">{{ticket.doc.nrChamado}}</p>
+                            </div>
+                            <div class="col col-10">
+                                <p class="ft-1 pad-lf-rt-10 mg-bt-5">{{ticket.doc.abertoEm}}</p>
+                            </div>
+                            <div class="col col-10">
+                                <p class="ft-1 pad-lf-rt-10 mg-bt-5">{{ticket.doc.dataAnatel}}</p>
+                            </div>
+                            <div class="col col-10">
+                                <p class="ft-1 pad-lf-rt-10 mg-bt-5">{{ticket.doc.dataProrrogada}}</p>
+                            </div>
+                            <div class="col col-10">
+                                <p class="ft-1 green pad-lf-rt-10 mg-bt-5">{{ticket.doc.status}}</p>
+                            </div>
+                            <div class="col col-10">
+                                <p class="ft-1 pad-lf-rt-10 mg-bt-5">{{ticket.doc.situacao}}</p>
+                            </div>
+                            <div class="col col-20">
+                                <p class="ft-1 pad-lf-rt-10 mg-bt-5">{{ticket.doc.prioridade}}</p>
+                            </div>
+                            <div class="col col-10">
+                                <p class="ft-1 pad-lf-rt-10 mg-bt-5">{{ticket.doc.categoria}}</p>
+                            </div>
+                        </div>
+                    </ion-scroll>
+                </div>
+                <a class="icon btn-rt-top" ng-click="tk_vm.modal.show()">
+                    <img src="img/edit_icon.png"/>
+                </a>
+            </div>
+        </div>
+        <!--<form>
+            <ion-list>
+                <label class="item item-input" name="esitloMusical">
+                    <span class="input-label">Estilo Musical</span>
+                    <input ng-bind="home.dataEstilo" ng-model="home.dataEstilo.nome" type="text" placeholder="estilo musical" >
+                </label>
+            </ion-list>
+            <div class="spacer" style="height: 40px;"></div>
+            <button class="button button-stable button-block  icon-right ion-music-note" ng-click="home.save(home.dataEstilo)">Incluir</button>
+        </form>
+
+        <ion-list ng-repeat="item in home.dataEstilo" >
+            <ion-item>
+                <button class="ion-minus-circled" ng-click="home.dataEstilo.splice($index, 1); home.delete(item.id)">
+
+                </button>
+                {{item.doc.estiloMusical}}
+            </ion-item>
+        </ion-list>-->
+
+    </ion-content>
+</ion-view>

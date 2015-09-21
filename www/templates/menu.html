@@ -1,36 +1,58 @@
 <ion-side-menus enable-menu-with-back-views="false">
   <ion-side-menu-content>
-    <ion-nav-bar class="bar-stable">
-      <ion-nav-back-button>
-      </ion-nav-back-button>
+      <div class="bar bar-header bar-purple">
 
-      <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-        </button>
-      </ion-nav-buttons>
-    </ion-nav-bar>
+      </div>
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
 
-  <ion-side-menu side="left">
-    <ion-header-bar class="bar-stable">
-      <h1 class="title">Left</h1>
-    </ion-header-bar>
-    <ion-content>
-      <ion-list>
-        <ion-item menu-close ng-click="login()">
-          Login
-        </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
-        </ion-item>
-        <ion-item menu-close href="#/app/browse">
-          Novo Estilo
-        </ion-item>
-        <ion-item menu-close href="#/app/playlists">
-          Playlists
-        </ion-item>
-      </ion-list>
-    </ion-content>
+  <ion-side-menu side="left" expose-aside-when="large" width="145">
+        <div class="bar bar-header bar-purple">
+            <h1 class="logo">
+                <img src="img/logo.png"/>
+            </h1>
+        </div>
+        <div class="list has-header">
+            <a class="item mg-tp-10" href="#/app/home">
+                <img src="img/tab_dashboard_over.png"/>
+            </a>
+            <a class="item mg-tp-10" href="#/app/fluxo">
+                <img src="img/tab_dashboard.png"/>
+            </a>
+            <a class="item mg-tp-10" href="#/app/search">
+                <img src="img/tab_dashboard.png"/>
+            </a>
+
+        </div>
   </ion-side-menu>
 </ion-side-menus>
+
+<!--<ion-side-menus>
+  <ion-side-menu-content>
+    <ion-header-bar class="bar-positive">
+      <div class="buttons">
+        <button class="button icon button-clear ion-navicon-round" ng-click="toggleLeft()">
+        </button>
+      </div>
+      <h1 class="title">Mapa</h1>
+    </ion-header-bar>
+  </ion-side-menu-content>
+  <ion-side-menu side="left">
+    <header class="bar bar-header bar-assertive">
+      <div class="title">Categorias</div>
+    </header>
+    <ion-list class="Padding">
+        <div class="list has-header">
+            <a class="item mg-tp-10" menu-close menu-toggle="left" href="#/app/fluxo">
+                Fluxo
+            </a>
+            <a class="item mg-tp-10" href="#/app/home">
+                <img src="img/tab_dashboard_over.png"/>
+            </a>
+            <a class="item mg-tp-10" href="#/app/search">
+                <img src="img/tab_dashboard.png"/>
+            </a>
+        </div>
+    </ion-list>
+  </ion-side-menu>
+</ion-side-menus>-->

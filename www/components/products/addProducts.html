@@ -1,0 +1,26 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">Adicionar Produto</h1>
+    </ion-header-bar>
+    <ion-content>
+        <form name="fmProducts">
+            <div class="list">
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Status</span>
+                <input type="text" ng-model="pd_vm.status" name="status">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Data Início</span>
+                <input type="text" ng-model="pd_vm.dataInicio" name="modelo">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Produto</span>
+                <input type="text" ng-model="pd_vm.productName" name="imei">
+              </label>
+            </div>
+            <button class="button" ng-click="pd_vm.save(fmProducts)">
+                Salvar
+            </button>
+        </form>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,26 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">Adicionar Device</h1>
+    </ion-header-bar>
+    <ion-content>
+        <form name="fmDevices">
+            <div class="list">
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Status</span>
+                <input type="text" ng-model="vm.status" name="status">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Modelo</span>
+                <input type="text" ng-model="vm.modelo" name="modelo">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">IMEI</span>
+                <input type="text" ng-model="vm.imei" name="imei">
+              </label>
+            </div>
+            <button class="button" ng-click="vm.save(fmDevices)">
+                Salvar
+            </button>
+        </form>
+    </ion-content>
+</ion-modal-view>
