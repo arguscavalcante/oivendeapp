@@ -1,0 +1,123 @@
+<ion-view ng-controller="HomeCtrl as home">
+    <ion-content padding="true" class="main-content" scroll="false">
+        <div class="row cmp-search">
+            <i class="icon ion-navicon lt-gold ft-2 icon-search-section"></i>
+
+            <div class="col col-66">
+                <label class="item item-input rad-25 border-3px">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" placeholder="Digite o CPF, Nome ou Terminal do Cliente">
+                </label>
+            </div>
+        </div>
+
+        <div class="row cmp-client" onclick="myhref('#/app/home')">
+            <div class="col col-33 list border-right">
+                <p class="item item-icon-right no-border">
+                    <span class="ft-1">Leonardo Luiz Sarmento</span>
+                    <a class="icon ft-1 dk-blue ion-ios-information-outline" href="#"></a>
+                </p>
+                <p class="item item-icon-right no-border">
+                    <span class="ft-0-8 lt-green">Ativo - </span>
+                    <span class="ft-0-8 lt-gold">Segmento Ouro</span>
+                    <a class="icon" href="#">
+                        <img src="img/edit_icon.png"/>
+                    </a>
+                </p>
+            </div>
+            <div class="col col-15 border-right">
+                <span class="grey">No. Oi:</span>
+                <p class="ft-1 mg-tp-10">21988718111</p>
+            </div>
+            <div class="col col-15 border-right">
+                <span class="grey">Oi Chip:</span>
+                <p class="ft-1 mg-tp-10">895501831</p>
+            </div>
+            <div class="col col-33">
+                <span class="grey">Planos</span>
+                <p class="ft-1 lt-blue mg-tp-10">
+                    Plano Oi Colaborador, Oi Dados Colaborador
+                </p>
+            </div>
+        </div>
+        <div class="row cmp-client-footer border-top">
+            <div class="col col-10">
+                <p class="item item-checkbox no-border">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>
+                    <span class="ft-0-6 gold">Inadimplente</span>
+                </p>
+            </div>
+            <div class="col col-10">
+                <p class="item item-checkbox no-border">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>
+                    <span class="ft-0-6 dk-purple">VIP</span>
+                </p>
+            </div>
+            <div class="col col-10">
+                <p class="item item-checkbox no-border">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>
+                    <span class="ft-0-6 dk-purple">Migrado</span>
+                </p>
+            </div>
+            <div class="col col-10">
+                <p class="item item-checkbox no-border">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>
+                    <span class="ft-0-6 dk-blue">Empresa Pioneiro</span>
+                </p>
+            </div>
+            <div class="col col-10">
+                <p class="item item-checkbox no-border">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>
+                    <span class="ft-0-6 dk-blue">Anatel</span>
+                </p>
+            </div>
+            <div class="col col-10">
+                <p class="item item-checkbox no-border">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>
+                    <span class="ft-0-6 gold">Vítima de fraude</span>
+                </p>
+            </div>
+            <div class="col col-10">
+                <p class="item item-checkbox no-border">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>
+                    <span class="ft-0-6 gold">Resgate Indevido</span>
+                </p>
+            </div>
+            <div class="col col-10">
+                <p class="item item-checkbox no-border">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>
+                    <span class="ft-0-6 gold">Bloq. Cadastro</span>
+                </p>
+            </div>
+            <div class="col col-10">
+                <p class="item item-checkbox no-border">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>
+                    <span class="ft-0-6 gold">Fraude</span>
+                </p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+
+<script type="text/javascript">
+    function myhref(web){
+      window.location.href = web;}
+</script>

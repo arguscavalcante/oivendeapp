@@ -2,16 +2,11 @@
     <ion-content padding="true" class="main-content" scroll="false">
         <div class="row cmp-search">
             <i class="icon ion-navicon lt-gold ft-2 icon-search-section"></i>
-            <div class="col col-25">
-                <label class="item item-input rad-25 border-3px ">
-                    <i class="icon ion-search placeholder-icon"></i>
-                    <input type="text" placeholder="CPF">
-                </label>
-            </div>
-            <div class="col col-50">
+
+            <div class="col col-66">
                 <label class="item item-input rad-25 border-3px">
                     <i class="icon ion-search placeholder-icon"></i>
-                    <input type="text" placeholder="Nome">
+                    <input type="text" placeholder="Digite o CPF, Nome ou Terminal do Cliente">
                 </label>
             </div>
         </div>
@@ -126,11 +121,11 @@
                     <div class="col col-20">
                         <p class="ft-0-8 gold txt-lt">Status</p>
                     </div>
-                    <div class="col col-50">
-                        <p class="ft-0-8 gold pad-lf-rt-10 txt-lt">Modelo</p>
-                    </div>
                     <div class="col col-33">
-                        <p class="ft-0-8 gold pad-lf-rt-10">IMEI</p>
+                        <p class="ft-0-8 gold pad-lf-rt-10">Data de inicio</p>
+                    </div>
+                    <div class="col col-50">
+                        <p class="ft-0-8 gold pad-lf-rt-10">Produto</p>
                     </div>
                 </div>
                 <div class="holder-data">
@@ -154,6 +149,14 @@
                 <a class="icon btn-rt-top" ng-click="pd_vm.modal.show()">
                     <img src="img/edit_icon.png"/>
                 </a>
+            </div>
+            <div ng-controller="ProductsCtrl as pd_vm">
+              {{data}}
+
+              <form ng-submit="pd_vm.sendPost()">
+                  <button type="submit">Send</button>
+              </form>
+
             </div>
             <div class="col col-50 cmp-devices" ng-controller="DevicesCtrl as vm">
                 <div class="tb-holder bg-white">
@@ -202,7 +205,7 @@
                         <p class="ft-0-8 gold txt-ct">No. do Chamado</p>
                     </div>
                     <div class="col col-10">
-                        <p class="ft-0-8 gold pad-lf-rt-10">Aberto em</p>
+                        <p class="ft-0-8 gold pad-lf-rt-10 txt-lt">Aberto em</p>
                     </div>
                     <div class="col col-10">
                         <p class="ft-0-8 gold pad-lf-rt-10">Data Anatel</p>
@@ -213,10 +216,10 @@
                     <div class="col col-10">
                         <p class="ft-0-8 gold pad-lf-rt-10">Status</p>
                     </div>
-                    <div class="col col-20">
+                    <div class="col col-10">
                         <p class="ft-0-8 gold pad-lf-rt-10">Situação</p>
                     </div>
-                    <div class="col col-10">
+                    <div class="col col-20">
                         <p class="ft-0-8 gold pad-lf-rt-10 txt-lt">Prioridade</p>
                     </div>
                     <div class="col col-10">

@@ -158,6 +158,14 @@
  .pad-top-10 {
      padding-top: 10px !important;
  }
+
+ .listHeight {
+     height: 100%;
+ }
+ .listBottom {
+    position: absolute;
+    bottom: 100px;
+ }
  /* Side Menu */
  @media (min-width: 767px) {
    .menu-content {

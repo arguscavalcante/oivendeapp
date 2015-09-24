@@ -43,6 +43,15 @@ var app = angular.module('OiVendeApp', ['ionic', 'pouchdb','lbServices','angular
     }
   })
 
+  .state('app.filas', {
+    url: '/filas',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/filas.html'
+      }
+    }
+  })
+
   .state('app.home', {
     url: '/home',
     views: {
