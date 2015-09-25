@@ -166,6 +166,25 @@
     position: absolute;
     bottom: 100px;
  }
+
+.cmp-search-filter {
+    position: absolute;
+    bottom: 55%;
+    left: 21%;
+}
+
+.lbl-search-filter {
+    position: absolute;
+    bottom: 65%;
+    left: 32%;
+}
+
+.img-search-filter {
+    position: absolute;
+    bottom: 70%;
+    left: 40%;
+}
+
  /* Side Menu */
  @media (min-width: 767px) {
    .menu-content {

@@ -47,7 +47,16 @@ var app = angular.module('OiVendeApp', ['ionic', 'pouchdb','lbServices','angular
     url: '/filas',
     views: {
       'menuContent': {
-        templateUrl: 'templates/filas.html'
+        templateUrl: 'views/filas/filas.html'
+      }
+    }
+  })
+
+  .state('app.login', {
+    url: '/login',
+    views: {
+      'menuContent': {
+        templateUrl: 'views/login/login.html'
       }
     }
   })
@@ -107,5 +116,5 @@ var app = angular.module('OiVendeApp', ['ionic', 'pouchdb','lbServices','angular
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/home');
+  $urlRouterProvider.otherwise('/app/login');
 });

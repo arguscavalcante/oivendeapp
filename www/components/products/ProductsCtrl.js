@@ -44,40 +44,6 @@
 			ProductsFactory.get();
 		};
 
-		vm.sendPost = function() {
-        var parametros = JSON.stringify({
-                Ator : "Oi Vende",
-                DDD : 21,
-                MSISDN : 22551920,
-                Login : "OI_VENDE_INTEGRACAO",
-                Senha : "oivende",
-                Chave : "37139",
-                TipoChave : "PDV",
-                Grupo : "Oi Vende"
-            });
-						console.log('VALOR PARAMETROS', parametros);
-        // $http.post("https://services.qa.oi.com.br/OiVende/DisponibilidadeVelox/verificar/", parametros).
-				// 		then(function(response) {
-        //     		$scope.data = parametros;
-				// 				console.log('VALOR DATA', $scope.data);
-        // 		}, function(response){
-				// 				console.log('ERRO', response);
-				// 		});
-
-						$http({
-						    url: 'https://services.qa.oi.com.br/OiVende/DisponibilidadeVelox/verificar/',
-								dataType: 'json',
-						    method: 'POST',
-						    data: parametros,
-						    headers:  {"accept": "application/json; charset=utf-8",
-            								'Authorization': 'Bearer 01.GTOXJNFLDrC67geKmqpFaQ'}
-						}).success(function (response) {
-						    console.log('VALOR DATA', response);
-						}).error(function (error) {
-								console.log('ERRO', error);
-						});
-    };
-
 		//
 		vm.delete = function (id) {
 			ProductsFactory.id = id;

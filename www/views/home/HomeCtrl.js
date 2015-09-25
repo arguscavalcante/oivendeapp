@@ -3,11 +3,14 @@
 	/**
 	 * @name HomeController
 	*/
-    app.controller('HomeCtrl', ['$rootScope', '$scope', 'HomeFactory', '$ionicSideMenuDelegate',
-		function($rootScope, $scope, HomeFactory, $ionicSideMenuDelegate) {
+    app.controller('HomeCtrl', ['$rootScope', '$scope', 'HomeFactory', '$ionicSideMenuDelegate', '$stateParams',
+		function($rootScope, $scope, HomeFactory, $ionicSideMenuDelegate, $stateParams) {
         //
         var vm = this;
         //
+		$scope.$on('$ionicView.enter', function(e) {
+				console.log('home whth', $stateParams.ehAssinante, e)
+	  });
 		vm.dataEstilo = [];
 		/**
 		 * Private methods

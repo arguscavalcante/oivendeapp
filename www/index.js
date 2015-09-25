@@ -35,6 +35,9 @@
     <script src="js/services/lb-services.js"></script>
 
     <!-- VIEWS / HOME -->
+    <script src="views/login/LoginFactory.js"></script>
+    <script src="views/login/LoginCtrl.js"></script>
+    <!-- VIEWS / HOME -->
     <script src="views/home/HomeFactory.js"></script>
     <script src="views/home/HomeCtrl.js"></script>
     <!-- COMPONENTS / DEVICES -->
