@@ -68,6 +68,7 @@
                     console.log('VALOR QUE DIGITEI', searchValue);
                     var nome = searchValue.toUpperCase().trim();
 
+                    $rootScope.nome = nome;
                     $state.go('app.home', {ehAssinante: nome === assinante});
 
 

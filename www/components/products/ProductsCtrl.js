@@ -51,6 +51,18 @@
 			//
 			refresh();
 		};
+
+		vm.cartModal = function() {
+			vm.modalAddCart.show();
+		};
+
+		$ionicModal.fromTemplateUrl('components/products/addToCart.html', {
+		    scope: $scope,
+		    animation: 'slide-in-up'
+		  }).then(function(modal) {
+		    vm.modalAddCart = modal;
+		  });
+
 		$ionicModal.fromTemplateUrl('components/products/addProducts.html', {
 		    scope: $scope,
 		    animation: 'slide-in-up'

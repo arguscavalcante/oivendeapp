@@ -212,6 +212,9 @@
     width: 100%;
     max-width: 100%;
 }
+.menu-top {
+  top: 62px;
+}
 /* Components */
 .btn-rt-top {
     position: absolute;
@@ -342,6 +345,20 @@
     }
 .cmp-chart {
     margin-top: 10px;
+}
+
+.modal-cart {
+  min-height: 212px;
+  width: 530px;
+  height: 1px;
+  left: 135px;
+  top: 118px;
+}
+
+.modal-button {
+  bottom: 25px;
+  left: 400px;
+  border: none;
 }
 /* Devices & Chart*/
 .cmp-devices {

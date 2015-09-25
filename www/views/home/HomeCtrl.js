@@ -3,23 +3,28 @@
 	/**
 	 * @name HomeController
 	*/
-    app.controller('HomeCtrl', ['$rootScope', '$scope', 'HomeFactory', '$ionicSideMenuDelegate', '$stateParams',
-		function($rootScope, $scope, HomeFactory, $ionicSideMenuDelegate, $stateParams) {
+    app.controller('HomeCtrl', ['$rootScope', '$scope', 'HomeFactory', '$ionicSideMenuDelegate', '$stateParams', '$ionicModal',
+		function($rootScope, $scope, HomeFactory, $ionicSideMenuDelegate, $stateParams, $ionicModal) {
         //
         var vm = this;
         //
 		$scope.$on('$ionicView.enter', function(e) {
-				console.log('home whth', $stateParams.ehAssinante, e)
+				console.log('home whth', $rootScope.nome, e)
+				vm.nome = $rootScope.nome;
+				console.log('VM NOME', vm.nome);
 	  });
 		vm.dataEstilo = [];
+
+
+
 		/**
 		 * Private methods
 		*/
 		//onload method to start controller
 		function onLoad () {
 			ionic.Platform.ready(function () {
-    //$ionicSideMenuDelegate.toggleLeft();
-  });
+	    //$ionicSideMenuDelegate.toggleLeft();
+	  });
 			getAll();
 		}
 		//
@@ -36,12 +41,12 @@
 		 * Public methods - exposed by vm, the controller alias
 		*/
 		//
-        vm.save = function(estilo) {
+    vm.save = function(estilo) {
 			HomeFactory.savedData = estilo;
 			HomeFactory.create(estilo);
 			/* TODO -> Think another way to update vm.dataEstilo */
 			refresh();
-        };
+    };
 		//
 		vm.get = function (id) {
 			HomeFactory.id = id;
