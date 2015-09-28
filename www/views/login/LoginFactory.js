@@ -6,8 +6,8 @@
         var mydb = pouchDB('playlist');
         return mydb;
     }]);
-    app.factory("LoginFactory", ['$http', '$state', '$q', '$rootScope', 'db',
-        function LoginFactory ($http, $state, $q, $rootScope, db)  {
+    app.factory("LoginFactory", ['$http', '$state', '$q', '$timeout', '$rootScope', 'db',
+        function LoginFactory ($http, $state, $q, $timeout, $rootScope, db)  {
 
             var options = {
               /*eslint-disable camelcase */
@@ -50,56 +50,53 @@
                 });
             }
 
-            function getClientData (searchValue){
+            function getClientData (nomes, searchFilter){
 
+              console.log('Searching airlines for ' + searchFilter);
 
-                  $http({
-                      url: 'http://oivendeapi1.mybluemix.net:80/api/Contatos',
-                      dataType: 'json',
-                      method: 'GET'
-                  }).then(function (response) {
-                      return sendPost();
-                  }).then(function (response){
+              var deferred = $q.defer();
 
-                    console.log('RESPONSE DA PROMISSE', response);
+        	    var matches = nomes.filter( function(nome) {
+                console.log('NOME', nome)
+        	    	if(nome.nome.toLowerCase().indexOf(searchFilter.toLowerCase()) !== -1 ) return true;
+        	    })
 
-                    var assinante = response.data.Assinante.toUpperCase().trim();
-    						    console.log('VALOR DATA POST', assinante);
-                    console.log('VALOR QUE DIGITEI', searchValue);
-                    var nome = searchValue.toUpperCase().trim();
+              $timeout( function(){
 
-                    $rootScope.nome = nome;
-                    $state.go('app.home', {ehAssinante: nome === assinante});
+                 deferred.resolve( matches );
 
+              }, 100);
 
-                  }).catch(function (error) {
-                      console.log('ERRO', error);
-                  });
+              return deferred.promise;
 
             }
 
-            function sendPost() {
-                var parametros = JSON.stringify({
-                        Ator : "Oi Vende",
-                        DDD : 21,
-                        MSISDN : 22551920,
-                        Login : "OI_VENDE_INTEGRACAO",
-                        Senha : "oivende",
-                        Chave : "37139",
-                        TipoChave : "PDV",
-                        Grupo : "Oi Vende"
-                    });
-        						console.log('VALOR PARAMETROS', parametros);
-
-        						return $http({
-        						    url: 'https://services.qa.oi.com.br/OiVende/DisponibilidadeVelox/verificar/',
-        								dataType: 'json',
-        						    method: 'POST',
-        						    data: parametros,
-        						    headers:  {"accept": "application/json; charset=utf-8",
-                    								'Authorization': 'Bearer 01.GTOXJNFLDrC67geKmqpFaQ'}
-        						});
+            return {
+              getClientData : getClientData
             };
+
+            // function sendPost() {
+            //     var parametros = JSON.stringify({
+            //             Ator : "Oi Vende",
+            //             DDD : 21,
+            //             MSISDN : 22551920,
+            //             Login : "OI_VENDE_INTEGRACAO",
+            //             Senha : "oivende",
+            //             Chave : "37139",
+            //             TipoChave : "PDV",
+            //             Grupo : "Oi Vende"
+            //         });
+        		// 				console.log('VALOR PARAMETROS', parametros);
+            //
+        		// 				return $http({
+        		// 				    url: 'https://services.qa.oi.com.br/OiVende/DisponibilidadeVelox/verificar/',
+        		// 						dataType: 'json',
+        		// 				    method: 'POST',
+        		// 				    data: parametros,
+        		// 				    headers:  {"accept": "application/json; charset=utf-8",
+            //         								'Authorization': 'Bearer 01.GTOXJNFLDrC67geKmqpFaQ'}
+        		// 				});
+            // };
 
 
 

@@ -167,10 +167,21 @@
     bottom: 100px;
  }
 
+ .rowBottom {
+    position: absolute;
+    bottom: 45px;
+ }
+
 .cmp-search-filter {
     position: absolute;
     bottom: 55%;
     left: 21%;
+}
+
+.listSearch {
+    top: 355px;
+    width: 755px;
+    left: 335px;
 }
 
 .lbl-search-filter {
@@ -403,6 +414,11 @@
     border-top: 8px solid #ef6f5c;
 
 }
+
+.cmp-labels {
+    width: 50%;
+}
+
     .cmp-cart .item {
         background:transparent;
     }
