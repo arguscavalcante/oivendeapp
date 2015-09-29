@@ -75,6 +75,8 @@
 
               console.log('RESPONSE DO CLICK', response.data);
 
+							$rootScope.clienteVelox = undefined;
+
  							if(data.nome.toLowerCase() === response.data.Assinante.toLowerCase()) {
 								console.log('CLIENTE VELOX');
 								$rootScope.clienteVelox = response.data;
