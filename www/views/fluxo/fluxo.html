@@ -1,5 +1,5 @@
 <ion-view ng-controller="HomeCtrl as home" class="int-view">
-    <ion-content padding="true" class="main-content" scroll="false">
+    <ion-content padding="true" class="main-content" scroll="false" >
         <div class="row  no-margin no-padding">
             <div class="col col-10 btn-menu-cart mg-tp-10">
 
@@ -8,7 +8,7 @@
                 <div class="row cmp-client">
                     <div class="col col-33 list border-right">
                         <p class="item item-icon-right no-border">
-                            <span class="ft-1" ng-bind="home.nome"></span>
+                            <span class="ft-1" ng-bind="home.dadosCliente.nome"></span>
                             <a class="icon ft-1 dk-blue ion-ios-information-outline" href="#"></a>
                         </p>
                         <p class="item item-icon-right no-border">
@@ -21,11 +21,11 @@
                     </div>
                     <div class="col col-15 border-right">
                         <span class="grey">No. Oi:</span>
-                        <p class="ft-1 mg-tp-10" ng-bind="home.telefone1"></p>
+                        <p class="ft-1 mg-tp-10" ng-bind="home.dadosCliente.telefone1"></p>
                     </div>
                     <div class="col col-15 border-right">
-                        <span class="grey">Oi Chip:</span>
-                        <p class="ft-1 mg-tp-10">895501831</p>
+                        <span class="grey">No. Oi 2:</span>
+                        <p class="ft-1 mg-tp-10" ng-bind="home.dadosCliente.telefone2"></p>
                     </div>
                     <div class="col col-33">
                         <span class="grey">Planos</span>
@@ -143,9 +143,7 @@
                     Velocidade isenta no plano
                 </div>
                 <select>
-                    <option>Blue</option>
-                    <option selected>Green</option>
-                    <option>Red</option>
+                    <option ng-repeat="option in home.modem">{{option[0].descricaoSubtipoModem}}</option>
                 </select>
             </label>
 
@@ -187,15 +185,13 @@
                     Sub-tipo de modem
                 </div>
                 <select>
-                    <option>Blue</option>
-                    <option selected>Green</option>
-                    <option>Red</option>
+                    <option ng-repeat="option in home.modem[0]">{{option.Modem.descricaoSubtipoModem}}</option>
                 </select>
             </label>
 
-            <label class="item item-input no-padding no-margin no-border">
-                Tipo de modem {{}}
-            </label>
+            <!-- <label class="item item-input no-padding no-margin no-border">
+                Tipo de modem {{ home.modem[0].Modem.descricaoSubtipoModem}}
+            </label> -->
           </div>
 
           <div class="col col-25 bg-white padding margin holder-details">
@@ -264,7 +260,7 @@
                 </select>
             </label>
 
-            <label class="item item-input no-padding no-margin no-border">
+            <!-- <label class="item item-input no-padding no-margin no-border">
                 Tipo de instalação {{}}
             </label>
 
@@ -274,11 +270,16 @@
 
             <label class="item item-input no-padding no-margin no-border">
                 Tipo de modem {{}}
-            </label>
+            </label> -->
           </div>
         </div>
 
         <!-- END -->
+
+        <div class="row teste">
+          {{home.modem[0].Modem.descricaoSubtipoModem}}
+
+        </div>
 
         <div class="row teste testeRow">
           <div class="col col-100 bg-white padding margin holder-details">
@@ -342,7 +343,7 @@
                       Agencia:
                   </div>
 
-                  <input type="text" />
+                  <input type="text" class="cmp-cart-border" />
               </label>
 
               <label class="item item-input no-padding no-margin no-border">
@@ -350,7 +351,7 @@
                       Conta Corrente:
                   </div>
 
-                  <input type="text" />
+                  <input type="text" class="cmp-cart-border"/>
               </label>
 
           </div>
@@ -384,7 +385,7 @@
                         Email:
                     </div>
 
-                    <input type="text" />
+                    <input type="text" class="cmp-cart-border"/>
                 </label>
 
                 <label class="item item-input no-padding no-margin no-border">
@@ -392,7 +393,7 @@
                         Cel.:
                     </div>
 
-                    <input type="text" />
+                    <input type="text" class="cmp-cart-border"/>
                 </label>
 
               </div>

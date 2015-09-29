@@ -3,8 +3,8 @@
 	/**
 	 * @name Devices Controller
 	*/
-    app.controller('ProductsCtrl', ['$rootScope', '$http', '$scope', 'ProductsFactory', '$ionicModal',
-		function($rootScope, $http, $scope, ProductsFactory, $ionicModal) {
+    app.controller('ProductsCtrl', ['$rootScope', '$state', '$http', '$scope', 'ProductsFactory', '$ionicModal',
+		function($rootScope, $state, $http, $scope, ProductsFactory, $ionicModal) {
         //
         var vm = this;
         //
@@ -52,16 +52,46 @@
 			refresh();
 		};
 
-		vm.cartModal = function() {
-			vm.modalAddCart.show();
+		vm.modemData = function () {
+			var responseModem;
+			var parametros = JSON.stringify({
+
+					velocidade : 18,
+					tipoModem : "00004",
+					uf : "MG"
+
+					});
+					console.log('VALOR PARAMETROS', parametros);
+
+					$http({
+							url: 'https://services.qa.oi.com.br/OiVende/ConsultaDadosModem/consultar/',
+							dataType: 'json',
+							method: 'POST',
+							data: parametros,
+							headers:  {"accept": "application/json; charset=utf-8",
+													'Authorization': 'Bearer 01.gJCNWf3wv1VJNq1NI-ZlJw'}
+					}).then (function(response){
+
+						responseModem = response.data.listaModem;
+						console.log('RESPONSE CONSULTA MODEM', responseModem);
+
+						$rootScope.modemData = responseModem;
+
+						$state.go('app.fluxo');
+
+					});
 		};
 
-		$ionicModal.fromTemplateUrl('components/products/addToCart.html', {
-		    scope: $scope,
-		    animation: 'slide-in-up'
-		  }).then(function(modal) {
-		    vm.modalAddCart = modal;
-		  });
+		// vm.cartModal = function() {
+		// 	vm.modalAddCart.show();
+		// };
+
+		// $ionicModal.fromTemplateUrl('components/products/addToCart.html', {
+		//     scope: $scope,
+		//     animation: 'slide-in-up'
+		//   }).then(function(modal) {
+		//     vm.modalAddCart = modal;
+		//   });
 
 		$ionicModal.fromTemplateUrl('components/products/addProducts.html', {
 		    scope: $scope,

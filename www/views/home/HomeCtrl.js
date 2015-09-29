@@ -10,10 +10,11 @@
         //
 		$scope.$on('$ionicView.enter', function(e) {
 				console.log('ROOTSCOPE DATA', $rootScope.data, e)
-				vm.nome = $rootScope.data.nome;
-				vm.telefone1 = $rootScope.data.telefone1;
+				vm.dadosCliente = $rootScope.data;
 				console.log('DADOS VELOX', $rootScope.clienteVelox);
 				vm.banda = $rootScope.clienteVelox.Banda;
+				console.log('DADOS DO MODEM', $rootScope.modemData);
+				vm.modem = $rootScope.modemData;
 	  });
 		vm.dataEstilo = [];
 

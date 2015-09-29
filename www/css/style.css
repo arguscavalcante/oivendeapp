@@ -481,3 +481,7 @@
   position: relative;
   right: 5px;
 }
+
+.cmp-cart-border {
+  border: 1px solid #ccc !important;
+}
