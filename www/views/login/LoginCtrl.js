@@ -33,24 +33,24 @@
 
           console.log('TESTE', response);
 
-          $scope.data = {'nomes': [], 'search': ''};
+          $scope.data = {'clientes': [], 'search': ''};
           $scope.data.search = searchValue;
 
           console.log('RESPONSE CLIENTE NOMES', responseClient);
 
           LoginFactory.getClientData(responseClient, $scope.data.search).then(
 
-          function(matches) {
-              $scope.data.nomes = matches;
-              console.log('$scope.data.nomes', $scope.data.nomes);
+          	function(matches) {
+              $scope.data.clientes = matches;
+              console.log('$scope.data.clientes', $scope.data.clientes);
             }
           );
       })
     };
 
-     $scope.sendPost = function(nome) {
+     $scope.sendPost = function(data) {
 
-       console.log('nome clicado', nome);
+       console.log('nome clicado', data);
 
         var parametros = JSON.stringify({
                 Ator : "Oi Vende",
@@ -73,11 +73,18 @@
                             'Authorization': 'Bearer 01.GTOXJNFLDrC67geKmqpFaQ'}
             }).then (function(response){
 
-              console.log('RESPONSE DO CLICK', response);
-              $rootScope.nome = nome;
+              console.log('RESPONSE DO CLICK', response.data);
+
+ 							if(data.nome.toLowerCase() === response.data.Assinante.toLowerCase()) {
+								console.log('CLIENTE VELOX');
+								$rootScope.clienteVelox = response.data;
+							}
+
+              $rootScope.data = data;
+
               $state.go('app.home');
 
-            })
+            });
 
 
 

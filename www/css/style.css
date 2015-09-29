@@ -164,12 +164,12 @@
  }
  .listBottom {
     position: absolute;
-    bottom: 100px;
+    bottom: 125px;
  }
 
  .rowBottom {
-    position: absolute;
-    bottom: 45px;
+   position: relative;
+   top: 115px;
  }
 
 .cmp-search-filter {
@@ -258,6 +258,7 @@
 }
     .menu-left .item img {
         width: 90%;
+        height: 100px;
     }
 /* INTERNAL VIEWS */
 .int-view .main-content{
@@ -456,3 +457,27 @@
         .cmp-cart-details .item-select:after {
             opacity: 0;
         }
+
+
+
+
+
+.teste .holder-details:first-child {
+  margin-left: 0;
+}
+
+.teste .holder-details {
+  border:none;
+  margin: 2px 3px;
+}
+
+.testeRow {
+  position: relative;
+  top: 135px;
+}
+
+.testeTop {
+  bottom: 5px;
+  position: relative;
+  right: 5px;
+}

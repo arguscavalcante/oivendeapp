@@ -21,7 +21,7 @@
                     </div>
                     <div class="col col-15 border-right">
                         <span class="grey">No. Oi:</span>
-                        <p class="ft-1 mg-tp-10">21988718111</p>
+                        <p class="ft-1 mg-tp-10" ng-bind="home.telefone1"></p>
                     </div>
                     <div class="col col-15 border-right">
                         <span class="grey">Oi Chip:</span>
@@ -110,92 +110,96 @@
                 </div>
             </div>
         </div>
-        <div class="row no-margin no-padding">
-            <div class="col col-25 cmp-cart no-padding bg-white">
-                <div class="row bg-grey no-margin cmp-cart-title">
-                    <p class="ft-1 dk-grey"><span class='bold'>Dois</span> itens no carrinho de compras</p>
-                </div>
-                <div class="list">
-                    <p class="item item-icon-right no-border item-active" href="#">
-                        Banda Larga Oi 10 Mega Velox
-                        <a class="icon ion-ios-arrow-forward ft-1-5 lt-orange"></a>
-                    </p>
-                    <p class="item item-icon-right no-border" href="#">
-                        Samsung Galaxy Gran Prime Duos
-                        <a class="icon ion-ios-arrow-forward ft-1-5 lt-orange"></a>
-                    </p>
-                </div>
-            </div>
-            <div class="holder-details col-25 bg-white">
 
-                <div class="row border-bottom">
-                    <p class="ft-1-3">Dados de Modem</p>
-                </div>
+        <!-- START -->
 
-                <label class="item item-input item-select no-padding no-margin no-border">
-                    <div class="input-label ft-0-8 dk-blue border-right cmp-labels">
-                        Velocidade isenta no plano
-                    </div>
-                    <select>
-                        <option>Blue</option>
-                        <option selected>Green</option>
-                        <option>Red</option>
-                    </select>
-                </label>
-
-                <label class="item item-input item-select no-padding no-margin  no-border">
-                    <div class="input-label ft-0-8 dk-blue border-right cmp-labels">
-                        Opção de Modem
-                    </div>
-                    <select>
-                        <option>Blue</option>
-                        <option selected>Green</option>
-                        <option>Red</option>
-                    </select>
-                </label>
-
-                <label class="item item-input item-select no-padding no-margin no-border">
-                    <div class="input-label ft-0-8 dk-blue border-right cmp-labels">
-                        Tipo de instalação
-                    </div>
-                    <select>
-                        <option>Blue</option>
-                        <option selected>Green</option>
-                        <option>Red</option>
-                    </select>
-                </label>
-
-                <label class="item item-input item-select no-padding no-margin no-border">
-                    <div class="input-label ft-0-8 dk-blue border-right cmp-labels">
-                        Taxa de instalação
-                    </div>
-                    <select>
-                        <option>Blue</option>
-                        <option selected>Green</option>
-                        <option>Red</option>
-                    </select>
-                </label>
-
-                <label class="item item-input item-select no-padding no-margin no-border">
-                    <div class="input-label ft-0-8 dk-blue border-right cmp-labels">
-                        Sub-tipo de modem
-                    </div>
-                    <select>
-                        <option>Blue</option>
-                        <option selected>Green</option>
-                        <option>Red</option>
-                    </select>
-                </label>
-
-                <label class="item item-input no-padding no-margin no-border">
-                    Tipo de modem {{}}
-                </label>
-
-            </div>
-            <div class="holder-details col-25 bg-white">
-              <div class="row border-bottom">
-                  <p class="ft-1-3">Dados de Campanha</p>
+        <div class="row teste">
+          <div class="col col-25 cmp-cart bg-white testeTop">
+              <div class="row bg-grey no-margin cmp-cart-title" ng-if="home.banda != undefined">
+                  <p class="ft-1 dk-grey"><span class='bold'>Um</span> item no carrinho de compras</p>
               </div>
+              <div class="row bg-grey no-margin cmp-cart-title" ng-if="home.banda == undefined">
+                  <p class="ft-1 dk-grey"><span class='bold'>Nenhum</span> item no carrinho de compras</p>
+              </div>
+              <div class="list" ng-if="home.banda != undefined">
+                  <p class="item item-icon-right no-border item-active" href="#">
+                      Banda Larga Oi {{home.banda}} Mega Velox
+                      <a class="icon ion-ios-arrow-forward ft-1-5 lt-orange"></a>
+                  </p>
+              </div>
+              <div class="list" ng-if="home.banda == undefined">
+                  <p class="item item-icon-right no-border item-active" href="#">
+                      Sem itens no carrinho
+                      <a class="icon ion-ios-arrow-forward ft-1-5 lt-orange"></a>
+                  </p>
+              </div>
+
+          </div>
+          <div class="col col-25 bg-white padding margin holder-details">
+            <div class="border-bottom padding-bottom ft-1-3">Dados de Modem</div>
+
+            <label class="item item-input item-select no-padding no-margin no-border">
+                <div class="input-label ft-0-8 dk-blue border-right cmp-labels">
+                    Velocidade isenta no plano
+                </div>
+                <select>
+                    <option>Blue</option>
+                    <option selected>Green</option>
+                    <option>Red</option>
+                </select>
+            </label>
+
+            <label class="item item-input item-select no-padding no-margin  no-border">
+                <div class="input-label ft-0-8 dk-blue border-right cmp-labels">
+                    Opção de Modem
+                </div>
+                <select>
+                    <option>Blue</option>
+                    <option selected>Green</option>
+                    <option>Red</option>
+                </select>
+            </label>
+
+            <label class="item item-input item-select no-padding no-margin no-border">
+                <div class="input-label ft-0-8 dk-blue border-right cmp-labels">
+                    Tipo de instalação
+                </div>
+                <select>
+                    <option>Blue</option>
+                    <option selected>Green</option>
+                    <option>Red</option>
+                </select>
+            </label>
+
+            <label class="item item-input item-select no-padding no-margin no-border">
+                <div class="input-label ft-0-8 dk-blue border-right cmp-labels">
+                    Taxa de instalação
+                </div>
+                <select>
+                    <option>Blue</option>
+                    <option selected>Green</option>
+                    <option>Red</option>
+                </select>
+            </label>
+
+            <label class="item item-input item-select no-padding no-margin no-border">
+                <div class="input-label ft-0-8 dk-blue border-right cmp-labels">
+                    Sub-tipo de modem
+                </div>
+                <select>
+                    <option>Blue</option>
+                    <option selected>Green</option>
+                    <option>Red</option>
+                </select>
+            </label>
+
+            <label class="item item-input no-padding no-margin no-border">
+                Tipo de modem {{}}
+            </label>
+          </div>
+
+          <div class="col col-25 bg-white padding margin holder-details">
+              <div class="border-bottom padding-bottom ft-1-3">Dados de Campanha</div>
 
               <label class="item item-input item-select no-padding no-margin  no-border">
                   <div class="input-label ft-0-8 dk-blue border-right cmp-labels">
@@ -232,53 +236,59 @@
                           <option>Red</option>
                       </select>
                   </label>
-              </div>
-              <div class="holder-details col-25 bg-white">
-                  <div class="row border-bottom">
-                      <p class="ft-1-3">Dados de Instalação</p>
-                  </div>
+          </div>
+          <div class="col col-25 bg-white padding margin holder-details">
+            <div class="border-bottom padding-bottom ft-1-3">Dados de Instalação</div>
 
-                  <label class="item item-input item-select no-padding no-margin no-border">
-                      <div class="input-label ft-0-8 dk-blue border-right cmp-labels">
-                          Sub-tipo de modem
-                      </div>
-
-                      <select>
-                          <option>Blue</option>
-                          <option selected>Green</option>
-                          <option>Red</option>
-                      </select>
-                  </label>
-
-                  <label class="item item-input item-select no-padding no-margin no-border">
-                      <div class="input-label ft-0-8 dk-blue border-right cmp-labels">
-                          Taxa de instalação
-                      </div>
-
-                      <select>
-                          <option>Blue</option>
-                          <option selected>Green</option>
-                          <option>Red</option>
-                      </select>
-                  </label>
-
-                  <label class="item item-input no-padding no-margin no-border">
-                      Tipo de instalação {{}}
-                  </label>
-
-                  <label class="item item-input no-padding no-margin no-border">
-                      Opçao de modem {{}}
-                  </label>
-
-                  <label class="item item-input no-padding no-margin no-border">
-                      Tipo de modem {{}}
-                  </label>
-
+            <label class="item item-input item-select no-padding no-margin no-border">
+                <div class="input-label ft-0-8 dk-blue border-right cmp-labels">
+                    Sub-tipo de modem
                 </div>
+
+                <select>
+                    <option>Blue</option>
+                    <option selected>Green</option>
+                    <option>Red</option>
+                </select>
+            </label>
+
+            <label class="item item-input item-select no-padding no-margin no-border">
+                <div class="input-label ft-0-8 dk-blue border-right cmp-labels">
+                    Taxa de instalação
+                </div>
+
+                <select>
+                    <option>Blue</option>
+                    <option selected>Green</option>
+                    <option>Red</option>
+                </select>
+            </label>
+
+            <label class="item item-input no-padding no-margin no-border">
+                Tipo de instalação {{}}
+            </label>
+
+            <label class="item item-input no-padding no-margin no-border">
+                Opçao de modem {{}}
+            </label>
+
+            <label class="item item-input no-padding no-margin no-border">
+                Tipo de modem {{}}
+            </label>
+          </div>
         </div>
 
-        <div class="row no-margin no-padding rowBottom">
-          <div class="holder-details col-50 bg-white">
+        <!-- END -->
+
+        <div class="row teste testeRow">
+          <div class="col col-100 bg-white padding margin holder-details">
+            <div class="border-bottom padding-bottom ft-1-3">Dados de Pagamento</div>
+          </div>
+
+        </div>
+
+        <div class="row teste rowBottom">
+          <div class="col col-50 bg-white padding margin holder-details">
 
 
               <label class="item item-input no-margin no-border" style="padding-left: 25px">
@@ -345,7 +355,7 @@
 
           </div>
 
-            <div class="holder-details col-50 bg-white">
+            <div class="col col-50 bg-white padding margin holder-details">
 
                 <label class="item item-input no-margin no-border" style="padding-left: 25px">
                     Deseja cadastrar serviço conta sem papel?

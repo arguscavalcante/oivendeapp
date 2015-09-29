@@ -9,9 +9,11 @@
         var vm = this;
         //
 		$scope.$on('$ionicView.enter', function(e) {
-				console.log('home whth', $rootScope.nome, e)
-				vm.nome = $rootScope.nome;
-				console.log('VM NOME', vm.nome);
+				console.log('ROOTSCOPE DATA', $rootScope.data, e)
+				vm.nome = $rootScope.data.nome;
+				vm.telefone1 = $rootScope.data.telefone1;
+				console.log('DADOS VELOX', $rootScope.clienteVelox);
+				vm.banda = $rootScope.clienteVelox.Banda;
 	  });
 		vm.dataEstilo = [];
 
