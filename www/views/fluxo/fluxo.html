@@ -12,7 +12,7 @@
                             <a class="icon ft-1 dk-blue ion-ios-information-outline" href="#"></a>
                         </p>
                         <p class="item item-icon-right no-border">
-                            <span class="ft-0-8 lt-green">oivende@oivende.com</span>
+                            <span class="ft-0-8 lt-green" ng-bind="home.dadosCliente.email"></span>
                         </p>
                     </div>
                     <div class="col col-15 border-right">
@@ -159,9 +159,7 @@
                     Tipo de instalação
                 </div>
                 <select class="cmp-select">
-                    <option>Blue</option>
-                    <option selected>Green</option>
-                    <option>Red</option>
+                    <option ng-repeat="option in home.instalacao">{{option.tipo}}</option>
                 </select>
             </label>
 
@@ -170,9 +168,7 @@
                     Taxa de instalação
                 </div>
                 <select class="cmp-select">
-                    <option>Blue</option>
-                    <option selected>Green</option>
-                    <option>Red</option>
+                    <option ng-repeat="option in home.instalacao">{{option.taxa}}</option>
                 </select>
             </label>
 
@@ -200,9 +196,7 @@
                   </div>
 
                   <select class="cmp-select">
-                      <option>Blue</option>
-                      <option selected>Green</option>
-                      <option>Red</option>
+                      <option ng-repeat="option in home.campanha">{{option.tipo}}</option>
                   </select>
                   </label>
 
@@ -212,9 +206,7 @@
                       </div>
 
                       <select class="cmp-select">
-                          <option>Blue</option>
-                          <option selected>Green</option>
-                          <option>Red</option>
+                          <option ng-repeat="option in home.campanha">{{option.campanha}}</option>
                       </select>
                   </label>
 
@@ -224,9 +216,7 @@
                       </div>
 
                       <select class="cmp-select">
-                          <option>Blue</option>
-                          <option selected>Green</option>
-                          <option>Red</option>
+                          <option ng-repeat="option in home.campanha">{{option.oferta}}</option>
                       </select>
                   </label>
           </div>
@@ -249,9 +239,7 @@
                 </div>
 
                 <select class="cmp-select">
-                    <option>Blue</option>
-                    <option selected>Green</option>
-                    <option>Red</option>
+                    <option ng-repeat="option in home.instalacao">{{option.taxa}}</option>
                 </select>
             </label>
 
@@ -312,9 +300,7 @@
                   </div>
 
                   <select class="cmp-select">
-                      <option>Blue</option>
-                      <option selected>Green</option>
-                      <option>Red</option>
+                      <option ng-repeat="option in home.pagamento">{{option.banco}}</option>
                   </select>
               </label>
 
@@ -324,9 +310,7 @@
                   </div>
 
                   <select class="cmp-select">
-                      <option>Blue</option>
-                      <option selected>Green</option>
-                      <option>Red</option>
+                      <option ng-repeat="option in home.pagamento">{{option.operacao}}</option>
                   </select>
               </label>
 
@@ -335,7 +319,7 @@
                       Agencia:
                   </div>
 
-                  <input type="text" class="cmp-cart-border" />
+                  <input type="text" class="cmp-cart-border" ng-value="home.pagamento[0].agencia" />
               </label>
 
               <label class="item item-input no-padding no-margin no-border">
@@ -343,7 +327,7 @@
                       Conta Corrente:
                   </div>
 
-                  <input type="text" class="cmp-cart-border"/>
+                  <input type="text" class="cmp-cart-border" ng-value="home.pagamento[0].conta" />
               </label>
 
           </div>
@@ -377,7 +361,7 @@
                         Email:
                     </div>
 
-                    <input type="text" class="cmp-cart-border"/>
+                    <input type="text" class="cmp-cart-border" ng-value="home.dadosCliente.email"/>
                 </label>
 
                 <label class="item item-input no-padding no-margin no-border">
@@ -385,7 +369,7 @@
                         Cel.:
                     </div>
 
-                    <input type="text" class="cmp-cart-border"/>
+                    <input type="text" class="cmp-cart-border" ng-value="home.dadosCliente.telefone1"/>
                 </label>
 
               </div>

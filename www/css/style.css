@@ -380,7 +380,7 @@
     padding-bottom: 0;
 }
 .cmp-devices .tb-holder {
-    height: 100px;
+    height: 95px;
     padding: 15px;
     position: relative;
 }
@@ -397,7 +397,7 @@
     padding: 15px;
 }
 .cmp-chart img {
-    max-width: 100%;
+    max-width: 60%;
 }
 /* tickets */
 .cmp-tickets {

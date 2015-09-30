@@ -3,8 +3,8 @@
   /**
    * @name Devices Controller
   */
-  app.controller('ProductsCtrl', ['$rootScope', '$state', '$http', '$scope', 'ProductsFactory', '$ionicModal',
-    function ($rootScope, $state, $http, $scope, ProductsFactory, $ionicModal) {
+  app.controller('ProductsCtrl', ['$rootScope', '$state', '$q', '$scope', 'ProductsFactory', '$ionicModal',
+    function ($rootScope, $state, $q, $scope, ProductsFactory, $ionicModal) {
       //
       var vm = this;
       //
@@ -54,30 +54,28 @@
 
       vm.modemData = function () {
         var responseModem;
-        var parametros = JSON.stringify({
-          velocidade: 18,
-          tipoModem: '00004',
-          uf: 'MG'
+        var responseInstalacao;
+        var responseCampanha;
+        var responsePagamento;
+        $q.all([ProductsFactory.getModemData(), ProductsFactory.getInstalacao(), ProductsFactory.getCampanha(), ProductsFactory.getPagamento()])
+          .then(function (arr) {
+            console.log('ARRAY DE PROMISSE', arr);
+            responseModem = arr[0].data.listaModem;
+            responseInstalacao = arr[1].data;
+            responseCampanha = arr[2].data;
+            responsePagamento = arr[3].data;
+            console.log('RESPONSE CONSULTA MODEM', responseModem);
+            console.log('RESPONSE CONSULTA INSTALACAO', responseInstalacao);
+            console.log('RESPONSE CONSULTA CAMPANHA', responseCampanha);
+            console.log('RESPONSE CONSULTA PAGAMENTO', responsePagamento);
 
-        });
-        console.log('VALOR PARAMETROS', parametros);
+            $rootScope.modemData = responseModem;
+            $rootScope.instalacaoData = responseInstalacao;
+            $rootScope.campanhaData = responseCampanha;
+            $rootScope.pagamentoData = responsePagamento;
 
-        $http({
-          url: 'https://services.qa.oi.com.br/OiVende/ConsultaDadosModem/consultar/',
-          dataType: 'json',
-          method: 'POST',
-          data: parametros,
-          headers: {'accept': 'application/json; charset=utf-8',
-          'Authorization': 'Bearer 01.gJCNWf3wv1VJNq1NI-ZlJw'}
-        }).then(function (response) {
-          responseModem = response.data.listaModem;
-          console.log('RESPONSE CONSULTA MODEM', responseModem);
-
-          $rootScope.modemData = responseModem;
-
-          $state.go('app.fluxo');
-
-        });
+            $state.go('app.fluxo');
+          });
       };
 
       // vm.cartModal = function() {

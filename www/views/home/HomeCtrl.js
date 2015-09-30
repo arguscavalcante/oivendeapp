@@ -15,6 +15,9 @@
         vm.clientVelox = $rootScope.clienteVelox;
         console.log('DADOS DO MODEM', $rootScope.modemData);
         vm.modem = $rootScope.modemData;
+        vm.instalacao = $rootScope.instalacaoData;
+        vm.campanha = $rootScope.campanhaData;
+        vm.pagamento = $rootScope.pagamentoData;
       });
       vm.dataEstilo = [];
 
