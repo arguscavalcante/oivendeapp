@@ -12,7 +12,7 @@
         console.log('ROOTSCOPE DATA', $rootScope.data, e);
         vm.dadosCliente = $rootScope.data;
         console.log('DADOS VELOX', $rootScope.clienteVelox);
-        vm.banda = $rootScope.clienteVelox.Banda;
+        vm.clientVelox = $rootScope.clienteVelox;
         console.log('DADOS DO MODEM', $rootScope.modemData);
         vm.modem = $rootScope.modemData;
       });

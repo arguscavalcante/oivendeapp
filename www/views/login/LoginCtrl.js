@@ -20,54 +20,38 @@
         var responseClient;
         var nomes;
 
-        return LoginFactory.getClientData(searchValue)
-          .then(function (matches) {
-            $scope.data = {
-              clientes: matches || [],
-              search: searchValue || ''
-            };
-            console.log('$scope.data.clientes', $scope.data.clientes);
-          });
+        if (searchValue.length > 2) {
+          return LoginFactory.getClientData(searchValue)
+            .then(function (matches) {
+              $scope.data = {
+                clientes: matches || [],
+                search: searchValue || ''
+              };
+              console.log('$scope.data.clientes', $scope.data.clientes);
+            });
+        }
 
       };
 
       $scope.sendPost = function (data) {
         console.log('nome clicado', data);
 
-        var parametros = JSON.stringify({
-          Ator: 'Oi Vende',
-          DDD: 21,
-          MSISDN: 22551920,
-          Login: 'OI_VENDE_INTEGRACAO',
-          Senha: 'oivende',
-          Chave: '37139',
-          TipoChave: 'PDV',
-          Grupo: 'Oi Vende'
-        });
-        console.log('VALOR PARAMETROS', parametros);
+        return LoginFactory.getClientOi()
+          .then(function (response) {
+            console.log('RESPONSE DO CLICK', response.data);
 
-        $http({
-          url: 'https://services.qa.oi.com.br/OiVende/DisponibilidadeVelox/verificar/',
-          dataType: 'json',
-          method: 'POST',
-          data: parametros,
-          headers: {'accept': 'application/json; charset=utf-8',
-          'Authorization': 'Bearer 01.GTOXJNFLDrC67geKmqpFaQ'}
-        }).then(function (response) {
-          console.log('RESPONSE DO CLICK', response.data);
+            $rootScope.clienteVelox = undefined;
 
-          $rootScope.clienteVelox = undefined;
+            if (data.nome.toLowerCase() === response.data.Assinante.toLowerCase()) {
+              console.log('CLIENTE VELOX');
+              $rootScope.clienteVelox = response.data;
+            }
 
-          if (data.nome.toLowerCase() === response.data.Assinante.toLowerCase()) {
-            console.log('CLIENTE VELOX');
-            $rootScope.clienteVelox = response.data;
-          }
+            $rootScope.data = data;
 
-          $rootScope.data = data;
+            $state.go('app.home');
 
-          $state.go('app.home');
-
-        });
+          });
 
       };
 

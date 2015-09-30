@@ -50,7 +50,7 @@
       }
 
       function getClientData (searchFilter) {
-        console.log('Searching airlines for ' + searchFilter);
+        console.log('Searching names for ' + searchFilter);
 
         var deferred = $q.defer();
 
@@ -79,9 +79,29 @@
 
       }
 
-      return {
-        getClientData: getClientData
-      };
+      function getClientOi () {
+        var parametros = JSON.stringify({
+          Ator: 'Oi Vende',
+          DDD: 21,
+          MSISDN: 22551920,
+          Login: 'OI_VENDE_INTEGRACAO',
+          Senha: 'oivende',
+          Chave: '37139',
+          TipoChave: 'PDV',
+          Grupo: 'Oi Vende'
+        });
+        console.log('VALOR PARAMETROS', parametros);
+
+        return $http({
+          url: 'https://services.qa.oi.com.br/OiVende/DisponibilidadeVelox/verificar/',
+          dataType: 'json',
+          method: 'POST',
+          data: parametros,
+          headers: {'accept': 'application/json; charset=utf-8',
+          'Authorization': 'Bearer 01.GTOXJNFLDrC67geKmqpFaQ'}
+        });
+
+      }
 
       // function sendPost() {
       //     var parametros = JSON.stringify({
@@ -115,7 +135,8 @@
         read: readData,
         update: updateData,
         delete: deleteData,
-        getClientData: getClientData
+        getClientData: getClientData,
+        getClientOi: getClientOi
       };
     }]
   );

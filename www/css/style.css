@@ -179,9 +179,10 @@
 }
 
 .listSearch {
-    top: 355px;
-    width: 755px;
-    left: 335px;
+    top: 40px;
+    width: 48%;
+    left: 30px;
+    position: absolute;
 }
 
 .lbl-search-filter {
@@ -480,6 +481,10 @@
   bottom: 5px;
   position: relative;
   right: 5px;
+}
+
+.cmp-select {
+  width: 50%;
 }
 
 .cmp-cart-border {

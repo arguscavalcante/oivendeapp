@@ -12,11 +12,7 @@
                             <a class="icon ft-1 dk-blue ion-ios-information-outline" href="#"></a>
                         </p>
                         <p class="item item-icon-right no-border">
-                            <span class="ft-0-8 lt-green">Ativo - </span>
-                            <span class="ft-0-8 lt-gold">Segmento Ouro</span>
-                            <a class="icon" href="#">
-                                <img src="img/edit_icon.png"/>
-                            </a>
+                            <span class="ft-0-8 lt-green">oivende@oivende.com</span>
                         </p>
                     </div>
                     <div class="col col-15 border-right">
@@ -115,19 +111,19 @@
 
         <div class="row teste">
           <div class="col col-25 cmp-cart bg-white testeTop">
-              <div class="row bg-grey no-margin cmp-cart-title" ng-if="home.banda != undefined">
+              <div class="row bg-grey no-margin cmp-cart-title" ng-if="home.clientVelox.Banda != undefined">
                   <p class="ft-1 dk-grey"><span class='bold'>Um</span> item no carrinho de compras</p>
               </div>
-              <div class="row bg-grey no-margin cmp-cart-title" ng-if="home.banda == undefined">
+              <div class="row bg-grey no-margin cmp-cart-title" ng-if="home.clientVelox.Banda == undefined">
                   <p class="ft-1 dk-grey"><span class='bold'>Nenhum</span> item no carrinho de compras</p>
               </div>
-              <div class="list" ng-if="home.banda != undefined">
+              <div class="list" ng-if="home.clientVelox.Banda != undefined">
                   <p class="item item-icon-right no-border item-active" href="#">
-                      Banda Larga Oi {{home.banda}} Mega Velox
+                      Banda Larga Oi {{home.clientVelox.Banda}} Mega Velox
                       <a class="icon ion-ios-arrow-forward ft-1-5 lt-orange"></a>
                   </p>
               </div>
-              <div class="list" ng-if="home.banda == undefined">
+              <div class="list" ng-if="home.clientVelox.Banda == undefined">
                   <p class="item item-icon-right no-border item-active" href="#">
                       Sem itens no carrinho
                       <a class="icon ion-ios-arrow-forward ft-1-5 lt-orange"></a>
@@ -142,19 +138,19 @@
                 <div class="input-label ft-0-8 dk-blue border-right cmp-labels">
                     Velocidade isenta no plano
                 </div>
-                <select>
-                    <option ng-repeat="option in home.modem">{{option[0].descricaoSubtipoModem}}</option>
-                </select>
+                <div class="cmp-select">
+                  <select class="cmp-select">
+                      <option ng-repeat="option in home.modem">{{option.Modem.habilitadoParaVenda}}</option>
+                  </select>
+                </div>
             </label>
 
             <label class="item item-input item-select no-padding no-margin  no-border">
                 <div class="input-label ft-0-8 dk-blue border-right cmp-labels">
                     Opção de Modem
                 </div>
-                <select>
-                    <option>Blue</option>
-                    <option selected>Green</option>
-                    <option>Red</option>
+                <select class="cmp-select">
+                    <option ng-repeat="option in home.modem">{{option.Modem.descricaoSubtipoModem}}</option>
                 </select>
             </label>
 
@@ -162,7 +158,7 @@
                 <div class="input-label ft-0-8 dk-blue border-right cmp-labels">
                     Tipo de instalação
                 </div>
-                <select>
+                <select class="cmp-select">
                     <option>Blue</option>
                     <option selected>Green</option>
                     <option>Red</option>
@@ -173,7 +169,7 @@
                 <div class="input-label ft-0-8 dk-blue border-right cmp-labels">
                     Taxa de instalação
                 </div>
-                <select>
+                <select class="cmp-select">
                     <option>Blue</option>
                     <option selected>Green</option>
                     <option>Red</option>
@@ -184,8 +180,9 @@
                 <div class="input-label ft-0-8 dk-blue border-right cmp-labels">
                     Sub-tipo de modem
                 </div>
-                <select>
-                    <option ng-repeat="option in home.modem[0]">{{option.Modem.descricaoSubtipoModem}}</option>
+
+                <select class="cmp-select">
+                    <option ng-repeat="option in home.modem">{{option.Modem.descricaoSubtipoModem}}</option>
                 </select>
             </label>
 
@@ -202,7 +199,7 @@
                       Tipo de campanha
                   </div>
 
-                  <select>
+                  <select class="cmp-select">
                       <option>Blue</option>
                       <option selected>Green</option>
                       <option>Red</option>
@@ -214,7 +211,7 @@
                           Campanha
                       </div>
 
-                      <select>
+                      <select class="cmp-select">
                           <option>Blue</option>
                           <option selected>Green</option>
                           <option>Red</option>
@@ -226,7 +223,7 @@
                           Oferta
                       </div>
 
-                      <select>
+                      <select class="cmp-select">
                           <option>Blue</option>
                           <option selected>Green</option>
                           <option>Red</option>
@@ -241,10 +238,8 @@
                     Sub-tipo de modem
                 </div>
 
-                <select>
-                    <option>Blue</option>
-                    <option selected>Green</option>
-                    <option>Red</option>
+                <select class="cmp-select">
+                    <option ng-repeat="option in home.modem">{{option.Modem.descricaoSubtipoModem}}</option>
                 </select>
             </label>
 
@@ -253,7 +248,7 @@
                     Taxa de instalação
                 </div>
 
-                <select>
+                <select class="cmp-select">
                     <option>Blue</option>
                     <option selected>Green</option>
                     <option>Red</option>
@@ -276,6 +271,7 @@
 
         <!-- END -->
 
+
         <div class="row teste testeRow">
           <div class="col col-100 bg-white padding margin holder-details">
             <div class="border-bottom padding-bottom ft-1-3">Dados de Pagamento</div>
@@ -293,15 +289,16 @@
               <div class="row cmp-client-footer">
                   <div class="col col-25">
                       <div class="row">
+
                           <p class="item item-checkbox no-border">
                               <label class="checkbox">
-                                  <input type="checkbox">
+                                  <input type="radio" name="debito" value="sim">
                               </label>
                               <span class="ft-0-6 gold">Sim</span>
                           </p>
                           <p class="item item-checkbox no-border">
                               <label class="checkbox">
-                                  <input type="checkbox">
+                                  <input type="radio" name="debito" value="nao">
                               </label>
                               <span class="ft-0-6 gold">Não</span>
                           </p>
@@ -310,11 +307,11 @@
               </div>
 
               <label class="item item-input item-select no-padding no-margin no-border">
-                  <div class="input-label ft-0-8 dk-blue border-right" style="padding-left: 25px">
+                  <div class="input-label ft-0-8 dk-blue" style="padding-left: 25px">
                       Banco
                   </div>
 
-                  <select>
+                  <select class="cmp-select">
                       <option>Blue</option>
                       <option selected>Green</option>
                       <option>Red</option>
@@ -322,11 +319,11 @@
               </label>
 
               <label class="item item-input item-select no-padding no-margin no-border">
-                  <div class="input-label ft-0-8 dk-blue border-right" style="padding-left: 25px">
+                  <div class="input-label ft-0-8 dk-blue" style="padding-left: 25px">
                       Operação
                   </div>
 
-                  <select>
+                  <select class="cmp-select">
                       <option>Blue</option>
                       <option selected>Green</option>
                       <option>Red</option>
@@ -361,13 +358,13 @@
                         <div class="row">
                             <p class="item item-checkbox no-border">
                                 <label class="checkbox">
-                                    <input type="checkbox">
+                                    <input type="radio" name="cadServico" value="sim">
                                 </label>
                                 <span class="ft-0-6 gold">Sim</span>
                             </p>
                             <p class="item item-checkbox no-border">
                                 <label class="checkbox">
-                                    <input type="checkbox">
+                                    <input type="radio" name="cadServico" value="nao">
                                 </label>
                                 <span class="ft-0-6 gold">Não</span>
                             </p>

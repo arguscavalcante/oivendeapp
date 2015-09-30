@@ -15,10 +15,10 @@
                 <i class="icon ion-search placeholder-icon"></i>
                 <input type="text" ng-model="searchValue" ng-change="check(searchValue)"/>
             </label>
+            <div class="list listSearch">
+              <li class="item" ng-repeat="data in data.clientes" ng-click="sendPost(data)">{{data.nome}}</li>
+            </div>
         </div>
-    </div>
-    <div class="list listSearch">
-      <li class="item" ng-repeat="data in data.clientes" ng-click="sendPost(data)">{{data.nome}}</li>
     </div>
   </ion-content>
 </ion-view>
