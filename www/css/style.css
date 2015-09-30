@@ -483,6 +483,10 @@
   right: 5px;
 }
 
+.testeInput {
+  max-height: 28px;
+}
+
 .cmp-select {
   width: 50%;
 }
