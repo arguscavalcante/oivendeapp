@@ -168,8 +168,8 @@
  }
 
  .rowBottom {
-   position: relative;
-   top: 10px;
+   position: absolute;
+    bottom: 45px;
  }
 
 .cmp-search-filter {
@@ -473,8 +473,8 @@
 }
 
 .testeRow {
-  position: relative;
-  top: 25px;
+  position: absolute;
+  bottom: 275px;
 }
 
 .testeTop {

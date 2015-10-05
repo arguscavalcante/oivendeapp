@@ -108,7 +108,7 @@
         </div>
 
         <!-- START -->
-
+        <ion-scroll>
         <div class="row teste">
           <div class="col col-33 cmp-cart bg-white testeTop">
               <div class="row bg-grey no-margin cmp-cart-title" ng-if="home.clientVelox.Banda != undefined">
@@ -131,7 +131,7 @@
               </div>
 
           </div>
-          <div class="col col-33 bg-white padding margin holder-details">
+          <div class="col col-33 bg-white padding margin holder-details" ng-if="home.clientVelox.Banda != undefined">
             <div class="border-bottom padding-bottom ft-1-3">Dados de Modem</div>
 
             <label class="item item-input item-select no-padding no-margin no-border">
@@ -187,7 +187,7 @@
             </label> -->
           </div>
 
-          <div class="col col-33 bg-white padding margin holder-details">
+          <div class="col col-33 bg-white padding margin holder-details" ng-if="home.clientVelox.Banda != undefined">
               <div class="border-bottom padding-bottom ft-1-3">Dados de Campanha</div>
 
               <label class="item item-input item-select no-padding no-margin  no-border">
@@ -223,8 +223,9 @@
 
         </div>
 
+
         <div class="row teste">
-          <div class="col col-33 bg-white padding margin holder-details">
+          <div class="col col-33 bg-white padding col-offset-33" ng-if="home.clientVelox.Banda != undefined">
             <div class="border-bottom padding-bottom ft-1-3">Dados de Instalação</div>
 
             <label class="item item-input item-select no-padding no-margin no-border">
@@ -262,7 +263,7 @@
         </div>
 
         <!-- END -->
-
+        </ion-scroll>
 
         <div class="row teste testeRow">
           <div class="col col-100 bg-white padding margin holder-details">
