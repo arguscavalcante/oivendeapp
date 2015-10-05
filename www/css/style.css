@@ -169,7 +169,7 @@
 
  .rowBottom {
    position: relative;
-   top: 115px;
+   top: 10px;
  }
 
 .cmp-search-filter {
@@ -474,7 +474,7 @@
 
 .testeRow {
   position: relative;
-  top: 135px;
+  top: 25px;
 }
 
 .testeTop {
@@ -485,6 +485,13 @@
 
 .testeInput {
   max-height: 28px;
+}
+
+.testeButton {
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+
 }
 
 .cmp-select {
